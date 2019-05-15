@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <div class="boton-menu-lateral" fxHide.gt-xs >
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div  fxHide.xs>
+        <a routerLink="/home"> <mat-icon>home</mat-icon>
+        </a>
+  </div>
+
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs *ngIf="UsuarioLogeado">
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items"  >
+   
+
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon >more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          
+          <button mat-menu-item  (click)="enviarAClientes()">
+            <mat-icon>account_circle</mat-icon>
+            <span>Clientes</span>
+          </button>
+        
+        </mat-menu>
+     
+    </ul>
+    <button mat-button (click)="cerrarSesion()"><mat-icon>exit_to_app</mat-icon></button>
+  </div>
+
+</mat-toolbar>

@@ -1,0 +1,67 @@
+<app-page-header [heading]="'Registro cliente'" [icon]="'how_to_reg'"></app-page-header>
+<div class="conteiner-fluid">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title><b style="font-size:18px">Registro cliente</b></mat-card-title>
+    <mat-card-subtitle>Modulo para ingresar nuevos clientes.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+
+
+
+    <form  [formGroup]="formIngresoClientes"  (submit)="ingresarCliente()">
+      <div class="form-row">
+            <div class="form-group col-md-6 ">
+          <mat-form-field class="example-full-width">
+            <input matInput formControlName="nombre" placeholder="Nombres">
+            <mat-error *ngIf="formIngresoClientes.controls['nombre'].errors?.required">El nombre es requerido.</mat-error>
+
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Apellidos"formControlName="apellido">
+            <mat-error *ngIf="formIngresoClientes.controls['apellido'].errors?.required">El apellido es requerido.</mat-error>
+
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Rut" formControlName="rut">
+            <mat-error *ngIf="formIngresoClientes.controls['rut'].errors?.required">El rut es requerido.</mat-error>
+            <mat-error *ngIf="formIngresoClientes.controls['rut'].errors.invalidRut">rut invalido</mat-error>
+
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-error *ngIf="formIngresoClientes.controls['email'].errors?.required">El email es requerido.</mat-error>
+
+          </mat-form-field>
+            </div>
+            <div class="form-group col-md-4 ">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Telefono" formControlName="telefono">
+            <mat-error *ngIf="formIngresoClientes.controls['telefono'].errors?.required">El telefono es requerido.</mat-error>
+
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Fax" formControlName="fax">
+            <mat-error *ngIf="formIngresoClientes.controls['fax'].errors?.required">El fax es requerido.</mat-error>
+
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Direccion" formControlName="direccion">
+            <mat-error *ngIf="formIngresoClientes.controls['direccion'].errors?.required">La direccion es requerida.</mat-error>
+
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="example-button-row">
+          <button mat-raised-button color="primary" [disabled]="formIngresoClientes.invalid">Ingresar</button>
+         <button mat-raised-button color="warn" (click)="router.navigate(['/home'])">Volver</button>
+        </div>
+    </form>
+
+
+  </mat-card-content>
+  <mat-card-actions>
+
+  </mat-card-actions>
+</mat-card>
+</div>

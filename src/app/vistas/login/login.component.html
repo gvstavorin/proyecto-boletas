@@ -1,0 +1,31 @@
+
+  <div id="app" class="app">
+	  <div class="left">
+	    <div class="apptittle"> <h3></h3><h3>SISTEMA BOLETAS</h3> </div>
+	   
+	    	<label  id="userLabel">Usuario</label>
+	    	<input type="text" id="user" #u1/>
+	    	<div class="underline"></div>
+	    	<label id="passwordLabel">Contraseña</label>
+	    	<input type="password" id="password"#p2 />
+	    	<div class="underline"></div>
+	    	<div class="submitButton">
+	    	  <button mat-button  (click)="check(u1.value, p2.value)">{{ loading ? 'Ingresando...' : 'Ingresar' }}</button>
+	    	</div>
+	   
+	  </div>
+	  <div class="right">
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+	  </div>
+	</div>

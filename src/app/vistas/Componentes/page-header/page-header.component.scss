@@ -1,0 +1,15 @@
+.nav-container {
+    position:relative;
+    margin-top: 0.5cm;
+  }
+  
+  button {
+    position:absolute;
+    right:1rem;
+    top:50%;
+    transform:translateY(-50%);
+  }
+  .mat-icon{
+    font-size: 18px;
+    color: black;
+  }
