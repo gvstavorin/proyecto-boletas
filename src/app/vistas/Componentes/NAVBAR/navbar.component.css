@@ -19,9 +19,15 @@ a:hover, a:active{
         border-radius: 0px;
     }
 }
+.mat-toolbar{
+
+    background: linear-gradient(60deg, #53343e, #ff176c);
+
+}
 .mat-toolbar.mat-primary
 {
     background: #3F5182;
+    
 
 }
 boton-menu-lateral{

@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Rut } from 'ng2-rut';
 import {LayoutComponent} from './layout.component';
+import { ProductosComponent } from './productos/productos.component';
 @NgModule({
   declarations: [
     NAVBARComponent,
     SIDEBARComponent,
     LayoutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductosComponent
     
     
   ],

@@ -8,6 +8,8 @@ import { RegistroClienteComponent } from './registro-cliente/registro-cliente.co
 import {DatatableComponent} from './datatable/datatable.component';
 import {MaterialModule} from './../../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 import { Ng2Rut } from 'ng2-rut';
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { Ng2Rut } from 'ng2-rut';
     ClientesRoutingModule,
     DataTablesModule,
     MaterialModule,FormsModule, ReactiveFormsModule ,Ng2Rut,
-    PageHeaderModule
+    PageHeaderModule,
+    HttpClientModule
   ]
 })
 export class ClientesModule { }

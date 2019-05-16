@@ -11,77 +11,59 @@
       <div class="boton-cliente">
           <button mat-raised-button color="primary" (click)="router.navigate(['/clientes/registro-clientes'])">Nuevo cliente</button>
       </div> 
-      <table datatable class="row-border hover" >
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>First name</th>
-              <th>Last name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Foo</td>
-              <td>Bar</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Someone</td>
-              <td>Youknow</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Iamout</td>
-              <td>Ofinspiration</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Yoda</td>
-              <td>Skywalker</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Patrick</td>
-              <td>Dupont</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Barack</td>
-              <td>Obama</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>François</td>
-              <td>Holland</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Michel</td>
-              <td>Popo</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Chuck</td>
-              <td>Norris</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Simon</td>
-              <td>Robin</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>Louis</td>
-              <td>Lin</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>Zelda</td>
-              <td>Link</td>
-            </tr>
-          </tbody>
-        </table>
+    
+      <div class="example-header mat-elevation-z8">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" 
+            placeholder="Escriba algo para filtrar">
+          </mat-form-field>
+    </div>
+    <br>
+    <div class="example-container mat-elevation-z8">
+
+        <div class="example-container mat-elevation-z8">
+            <mat-table [dataSource]="datosClientes" >
+             
+      
+              <!-- Columna Nombre -->
+              <ng-container matColumnDef="Nombres">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombres</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row | json}} </mat-cell>
+              </ng-container>
+      
+              <!-- Columna Apellido-->
+              <ng-container matColumnDef="Apellidos">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.apellido}} </mat-cell>
+              </ng-container>
+      
+              <!-- Columna Domicilio -->
+              <ng-container matColumnDef="Domicilio">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Domicilio</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.domicilio}} </mat-cell>
+              </ng-container>
+      
+               <!-- Columna Rut -->
+               <ng-container matColumnDef="Rut">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Rut </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.rut}} </mat-cell>
+              </ng-container>
+                <!-- Columna Ciudad -->
+                <ng-container matColumnDef="Ciudad">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.ciudad.nombre}} </mat-cell>
+              </ng-container>
+      
+      
+              <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+
+
+
+    </div>
+
   </mat-card-content>
   <mat-card-actions>
     <button mat-button></button>

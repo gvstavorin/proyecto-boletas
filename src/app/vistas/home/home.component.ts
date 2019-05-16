@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FacturacionService } from 'src/app/shared/services/facturacion.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpFact : FacturacionService) { }
 
   ngOnInit() {
+  }
+
+
+  factura(data){
+    this.httpFact.guardarDTETem(data).subscribe(data=>{console.log(data)}, error=>{console.log(error)})
   }
 
 }

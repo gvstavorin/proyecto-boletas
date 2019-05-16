@@ -11,8 +11,10 @@
 
 .mat-card {
     color: #fff;
+    margin: 0.2cm;
     .mat-card-header {
         width: 100%;
+      
     }
     .mat-card-title {
         font-size: 40px !important;
@@ -31,7 +33,7 @@
 }
 
 .mat-card.danger {
-    background: linear-gradient(60deg, #ec407a, #d81b60);
+    background: linear-gradient(60deg, #53343e, #ff176c);
 }
 
 .mat-card.warn {
@@ -43,5 +45,5 @@
 }
 
 .mat-card.info {
-    background: linear-gradient(60deg, #26c6da, #00acc1);
+    background: linear-gradient(60deg, #d9ff04, #00acc1);
 }
