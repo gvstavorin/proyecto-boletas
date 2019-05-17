@@ -1,0 +1,8 @@
+{
+ "/libredte/*":{
+     "target": "http://143.255.178.6",
+     "secure": false,
+     "changeOrigin":true
+ }
+
+}

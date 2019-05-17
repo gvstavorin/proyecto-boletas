@@ -6,7 +6,7 @@ import { HttpClient,HttpHeaders} from '@angular/common/http';
 })
 export class FacturacionService {
 
-  URL_FACT  = 'http://143.255.178.6';
+  URL_FACT  = '/libredte/api/dte/documentos/emitir';
   hasher = 't7dr5B1ujphds043WMMEFWwFLeyWYqMU';
   op = {
     'Authorization': 'dDdkcjVCMXVqcGhkczA0M1dNTUVGV3dGTGV5V1lxTVU6'
@@ -18,7 +18,7 @@ export class FacturacionService {
   guardarDTETem(data) {
 
 
-    return this.http.post(this.URL_FACT+'/libredte/api/dte/documentos/emitir',this.hasher);
+    return this.http.post(this.URL_FACT,this.hasher,{headers:this.op});
 
   }
 
