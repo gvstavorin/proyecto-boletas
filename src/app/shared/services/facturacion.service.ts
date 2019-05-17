@@ -17,8 +17,11 @@ export class FacturacionService {
 
   guardarDTETem(data) {
 
-
-    return this.http.post(this.URL_FACT,this.hasher,{headers:this.op});
+    data ={
+      dte : '33',
+      
+    }
+    return this.http.post(this.URL_FACT,data,{headers:this.op});
 
   }
 

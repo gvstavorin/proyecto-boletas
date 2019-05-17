@@ -21,15 +21,10 @@ a:hover, a:active{
 }
 .mat-toolbar{
 
-    background: linear-gradient(60deg, #53343e, #ff176c);
+    background: linear-gradient(60deg, #3F5182, rgb(4, 11, 31));
 
 }
-.mat-toolbar.mat-primary
-{
-    background: #3F5182;
-    
 
-}
 boton-menu-lateral{
     margin-right: 10px;
 }

@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UsuariosRoutingModule } from './usuarios-routing.module';
+import { UsuariosComponent } from './usuarios.component';
+import { PageHeaderModule } from '../Componentes/page-header/page-header.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [UsuariosComponent],
   imports: [
     CommonModule,
-    UsuariosRoutingModule
+    UsuariosRoutingModule,
+    PageHeaderModule
   ]
 })
 export class UsuariosModule { }

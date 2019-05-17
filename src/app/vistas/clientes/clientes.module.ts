@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataTablesModule } from 'angular-datatables';
 import {PageHeaderModule} from './../Componentes/page-header/page-header.module';
 import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClientesComponent } from './clientes.component';
@@ -20,7 +19,6 @@ import { Ng2Rut } from 'ng2-rut';
   imports: [
     CommonModule,
     ClientesRoutingModule,
-    DataTablesModule,
     MaterialModule,FormsModule, ReactiveFormsModule ,Ng2Rut,
     PageHeaderModule,
     HttpClientModule
