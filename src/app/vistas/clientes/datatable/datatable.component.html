@@ -39,6 +39,10 @@
                <th mat-header-cell *matHeaderCellDef>Domicilio</th>
                <td mat-cell *matCellDef = "let element"> {{element.domicilio}} </td>
             </ng-container>
+            <ng-container matColumnDef = "comuna">
+              <th mat-header-cell *matHeaderCellDef>Comuna</th>
+              <td mat-cell *matCellDef = "let element"> {{element.comuna['0'].comuna}} </td>
+           </ng-container>
             <ng-container matColumnDef="actions">
               <mat-header-cell *matHeaderCellDef>Opciones </mat-header-cell>
               <mat-cell *matCellDef="let row">
