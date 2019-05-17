@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {ClientesService} from './../../../shared/services/clientes.service';
 import { MatTableDataSource, MatSort } from '@angular/material';
 import {Clientes} from './../../../shared/model/clientes'
+import { MatPaginator } from '@angular/material/paginator'; 
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html',
@@ -10,8 +11,9 @@ import {Clientes} from './../../../shared/model/clientes'
 })
 export class DatatableComponent implements OnInit {
   dataSource: any ;
- 
-  displayedColumns: string[] = ['nombre', 'apellido', 'rut', 'domicilio'];
+  @ViewChild(MatPaginator) paginator: MatPaginator;   
+
+  displayedColumns: string[] = ['nombre', 'apellido', 'rut', 'domicilio','actions'];
   //dataSource: MatTableDataSource<any>;
 
   constructor( private router: Router, private httpService: ClientesService
@@ -26,11 +28,15 @@ export class DatatableComponent implements OnInit {
   .subscribe(datos => {  
             this.dataSource = new MatTableDataSource();  
              this.dataSource.data=datos['data'];
+             this.dataSource.paginator = this.paginator;
+
              console.log(this.dataSource);
      },  
     error => {  
                console.log('There was an error while retrieving Usuarios!' + error);  
              }); 
+
+            
   }
 
   applyFilter(filterValue: string) {
