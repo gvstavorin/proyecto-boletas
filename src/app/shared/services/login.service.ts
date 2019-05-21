@@ -6,7 +6,7 @@ export class LoginService {
   constructor() { }
   VerificarUsuarioPassword(usuario: string, pass : string)
   {
-         if(usuario == "romina@clubred.net" && pass =="secret"){ 
+         if(usuario == "sistema@s.cl" && pass =="secret"){ 
           sessionStorage.setItem('username',usuario);
              return true;
            }

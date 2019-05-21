@@ -11,12 +11,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Rut } from 'ng2-rut';
 import {LayoutComponent} from './layout.component';
+import { NavegadorPrincipalComponent } from './Componentes/navegador-principal/navegador-principal.component';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     NAVBARComponent,
     SIDEBARComponent,
     LayoutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavegadorPrincipalComponent
+    
     
     
     
@@ -27,10 +32,20 @@ import {LayoutComponent} from './layout.component';
     MaterialModule,
     Ng2Rut,
     FormsModule, ReactiveFormsModule,
-    
+    RouterModule,
     FlexLayoutModule,
     
-    HttpClientModule
+    HttpClientModule,
+    
+    MatToolbarModule,
+    
+    MatButtonModule,
+    
+    MatSidenavModule,
+    
+    MatIconModule,
+    
+    MatListModule
   ]
 })
 export class LayoutModule { }
