@@ -11,7 +11,7 @@ import {RutValidator,RutPipe } from 'ng2-rut';
 export class RegistroClienteComponent implements OnInit {
   formIngresoClientes: FormGroup;
 
-  constructor(private router: Router,private fb: FormBuilder, rutValidator: RutValidator) {
+  constructor(public router: Router,private fb: FormBuilder, rutValidator: RutValidator) {
     this.formIngresoClientes = this.fb.group({
       nombre: ["", Validators.required],
       apellido: ["", Validators.required],

@@ -18,7 +18,7 @@ export class DatatableComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'apellido', 'rut', 'domicilio','comuna','actions'];
   //dataSource: MatTableDataSource<any>;
 
-  constructor( private router: Router, private httpService: ClientesService
+  constructor( public router: Router, private httpService: ClientesService
     ) {
 
   
