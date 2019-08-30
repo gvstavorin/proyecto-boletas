@@ -23,18 +23,6 @@
         <i class="fa fa-users"></i>&nbsp;
         <span>Clientes </span>
        </a>
-       <a  mat-list-item  [routerLink]="['/usuarios']" [routerLinkActive]="['router-link-active']" class="list-group-item" matTooltip="Ir a modulo de clientes" >
-        <i class="fas fa-user"></i>&nbsp;
-        <span>Usuarios </span>
-       </a>
-       <a  mat-list-item  [routerLink]="['/productos']" [routerLinkActive]="['router-link-active']" class="list-group-item" matTooltip="Ir a modulo de clientes" >
-        <i class="fas fa-store-alt"></i>&nbsp;
-        <span>Productos </span>
-       </a>
-       <a  mat-list-item  [routerLink]="['/mapas']" [routerLinkActive]="['router-link-active']" class="list-group-item" matTooltip="Ir a modulo de clientes" >
-        <i class="fas fa-map-marked-alt "></i>&nbsp;
-        <span>Mapa </span>
-       </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -48,13 +36,13 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs *ngIf="UsuarioLogeado">
+      <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs >
    
-        <button mat-button (click)="cerrarSesion()"><mat-icon>exit_to_app</mat-icon></button>
+        <button mat-button (click)="cerrarSesion()" matTooltip="Salir de la aplicacion"><mat-icon>exit_to_app</mat-icon></button>
       </div>
     </mat-toolbar>
   
-<div class="container">
+<div class="contenedor">
   <router-outlet>
 
 

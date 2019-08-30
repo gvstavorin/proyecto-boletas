@@ -1,0 +1,58 @@
+<mat-toolbar>
+    <span>Pago Cliente</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+      <mat-icon class="btn-close">clear</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div>
+  
+    <form [formGroup]="formEstadoCuentaTotal" class="normal-form" (submit)="elegirDocumento()">
+  
+      <div class="Select-Odt" style="margin-top: 0.6cm">
+        <mat-form-field >
+          <mat-label>Tipo de pago</mat-label>
+          <mat-select  formControlName="formaDePago" >
+            <mat-option *ngFor="let odts of tipo_Pago" [value]="odts.tipo">
+              {{ odts.tipo }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+  
+  
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo de Documento</mat-label>
+        <mat-select formControlName="tipoDte">
+          <mat-option value="39">Boleta</mat-option>
+          <mat-option value="33">Factura</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Pago de cuenta para " value="{{cuentaApagar?.nombre}}  " readonly>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Monto de servicio"
+          value="{{cuentaApagar?.monto}} " readonly>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input formControlName="descuento" type="number" autocomplete="off" min="0" value="0" matInput placeholder="Ingresar Descuento ">
+      </mat-form-field>
+      <mat-list>
+        <mat-list-item>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Monto total a pagar" formControlName="total" min="0"
+              [value]="calcularTotal()" readonly="readonly">
+          </mat-form-field>
+        </mat-list-item>
+      </mat-list>
+  
+      <button mat-raised-button class="btn-block" type="submit" [disabled]="formEstadoCuentaTotal.invalid"
+        color="primary">
+        <mat-icon></mat-icon> Pagar cuenta
+      </button>
+    </form>
+  
+  </div>
+  

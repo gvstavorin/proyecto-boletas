@@ -10,11 +10,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { Ng2Rut } from 'ng2-rut';
+import { PagoClienteComponent } from './pago-cliente/pago-cliente.component';
 @NgModule({
   declarations: [
     ClientesComponent,
     RegistroClienteComponent,
-    DatatableComponent
+    DatatableComponent,
+    PagoClienteComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { Ng2Rut } from 'ng2-rut';
     MaterialModule,FormsModule, ReactiveFormsModule ,Ng2Rut,
     PageHeaderModule,
     HttpClientModule
-  ]
+  ],
+  entryComponents:[PagoClienteComponent]
 })
 export class ClientesModule { }

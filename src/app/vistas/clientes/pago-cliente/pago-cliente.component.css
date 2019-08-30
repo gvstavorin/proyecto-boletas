@@ -1,0 +1,23 @@
+.btn-dialog-close {
+    border:none;
+      width: 45px;
+      min-width: 0px !important;
+      height: 40px;
+      padding: 0px !important;
+  }
+  .tool-bar {
+    margin-bottom: 1cm;
+}
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+.steps {
+
+    margin: 1.4cm;
+}
+.mat-form-field{
+display:block;
+    font-size: 20px;
+}

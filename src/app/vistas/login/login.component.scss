@@ -1,3 +1,15 @@
+.mat-form-field{
+    width: 64%;
+}
+.mat-select{
+    display: inline-block;
+    width: 66%;
+    outline: 0;
+    margin-top: 7%;
+    margin-left: 2%;
+}
+
+
 body {
     font-family: sans-serif;
     padding: 0;
@@ -12,9 +24,9 @@ body {
   
   .left{
       height: 100vh;
-      width: 400px;
-      min-width: 400px;
-      max-width: 400px;
+      width: 450px;
+      min-width: 450px;
+      max-width: 600px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
       display: flex;
       flex-direction: column;
@@ -75,19 +87,12 @@ body {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      width: 100%;
+
   }
   
-  input[type="text"], input[type="password"]{
-      margin-top: 10px;
-      border: 0;
-      border-bottom: solid 2px;
-      width: 260px;
-      border-color: #b3b3b3;
-  }
-  
-  input[type="text"]:focus + .underline, input[type="password"]:focus + .underline{
-      width: 260px;
-  }
+
+
   
   button{
       color: white;
@@ -226,5 +231,15 @@ body {
           transform: translateY(-1000px) translateX(-30px);
           opacity: 0;
       }
+  
+  }
+
+  @media only screen and (max-width: 500px) {
+  .left{
+        width: 500px;
+      
+        box-shadow: 0 -11px 5px 0 rgba(0, 0, 0, 0.8);        display: flex;
+      }
+ 
   
   }

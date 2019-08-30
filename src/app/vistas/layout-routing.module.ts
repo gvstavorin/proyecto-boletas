@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import { AuthGuard } from '../shared/auth/auth.guard';
 const routes: Routes = [
        
   {
@@ -10,9 +11,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'prefix' },
       { path: 'home', loadChildren: './home/home.module#HomeModule' },
       { path: 'clientes', loadChildren: './clientes/clientes.module#ClientesModule' },
-      { path: 'usuarios', loadChildren: './usuarios/usuarios.module#UsuariosModule' },
-      { path: 'productos', loadChildren: './productos/productos.module#ProductosModule' },
-      { path: 'mapas', loadChildren: './mapas/mapas.module#MapasModule' },
+
       
     ]
   }

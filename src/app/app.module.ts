@@ -5,11 +5,14 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DataTablesModule } from 'angular-datatables';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2Rut } from 'ng2-rut';
-import {AuthGuard} from './shared/services/auth.guard';
+import {AuthGuard} from './shared/auth/auth.guard';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LoginService } from './shared/services/login.service';
+import { AuthInterceptor } from './shared/interceptor/auth-interceptor';
+import { TokenInterceptor } from './shared/interceptor/token-interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
   
     
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard,   
+    { provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true },
+    { provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true }] ,
   bootstrap: [AppComponent]
   
 })

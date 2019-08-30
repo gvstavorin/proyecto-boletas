@@ -8,14 +8,12 @@
     <mat-card-subtitle><p>lista de clientes</p></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-      <div class="boton-cliente">
-          <button mat-raised-button color="primary" (click)="router.navigate(['/clientes/registro-clientes'])">Nuevo cliente</button>
-      </div> 
+ 
     
       <div class="example-header mat-elevation-z8">
           <mat-form-field>
             <input matInput (keyup)="applyFilter($event.target.value)" 
-            placeholder="Escriba algo para filtrar">
+            placeholder="Buscar cliente">
           </mat-form-field>
     </div>
     <br>
@@ -25,34 +23,32 @@
           <table mat-table [dataSource] = "dataSource"  class = "mat-elevation-z8"> 
             <ng-container matColumnDef = "nombre">
                <th mat-header-cell *matHeaderCellDef> Nombre</th>
-               <td mat-cell *matCellDef = "let element"> {{element.nombre}} </td>
-            </ng-container>
-            <ng-container matColumnDef = "apellido">
-               <th mat-header-cell *matHeaderCellDef>Apellido</th>
-               <td mat-cell *matCellDef = "let element"> {{element.apellido}} </td>
+               <td mat-cell *matCellDef = "let element"> {{element.nombre}}</td>
             </ng-container>
             <ng-container matColumnDef = "rut">
                <th mat-header-cell *matHeaderCellDef>Rut</th>
                <td mat-cell *matCellDef = "let element"> {{element.rut}} </td>
             </ng-container>
-            <ng-container matColumnDef = "domicilio">
-               <th mat-header-cell *matHeaderCellDef>Domicilio</th>
-               <td mat-cell *matCellDef = "let element"> {{element.domicilio}} </td>
+            <ng-container matColumnDef = "direccion">
+               <th mat-header-cell *matHeaderCellDef>Direccion</th>
+               <td mat-cell *matCellDef = "let element"> {{element.direccion}} </td>
             </ng-container>
-            <ng-container matColumnDef = "comuna">
-              <th mat-header-cell *matHeaderCellDef>Comuna</th>
-              <td mat-cell *matCellDef = "let element"> {{element.comuna['0'].comuna}} </td>
-           </ng-container>
+            <ng-container matColumnDef = "plan">
+                <th mat-header-cell *matHeaderCellDef>Plan</th>
+                <td mat-cell *matCellDef = "let element"> {{element.plan}} </td>
+             </ng-container>
+             <ng-container matColumnDef = "monto">
+                <th mat-header-cell *matHeaderCellDef>Total</th>
+                <td mat-cell *matCellDef = "let element"> {{element.monto | currency:'CLP':'symbol' }} </td>
+             </ng-container>
+        
             <ng-container matColumnDef="actions">
-              <mat-header-cell *matHeaderCellDef>Opciones </mat-header-cell>
-              <mat-cell *matCellDef="let row">
-                <button mat-icon-button matTooltip="Click para editar" class="iconbutton" color="primary">
-                    <mat-icon aria-label="Edit">editar</mat-icon>
+              <th mat-header-cell *matHeaderCellDef>Opciones </th>
+              <td *matCellDef="let row">
+                <button mat-raised-button matTooltip="Click para Boleta" (click)="facturarRapido(row)" class="iconbutton" color="primary">
+                  Pagar 
                   </button>
-                <button mat-icon-button matTooltip="Click para eliminar" class="iconbutton" color="warn">
-                    <mat-icon aria-label="Delete">delete</mat-icon>
-                  </button>
-              </mat-cell>
+          
             </ng-container>
             <tr mat-header-row *matHeaderRowDef = "displayedColumns"></tr>
             <tr mat-row *matRowDef = "let row; columns: displayedColumns;"></tr>

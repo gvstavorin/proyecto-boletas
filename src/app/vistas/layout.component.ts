@@ -3,6 +3,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import Swal from "sweetalert2";
+import { LoginService } from '../shared/services/login.service';
 
 
 
@@ -21,26 +23,39 @@ export class LayoutComponent {
 
 
 
-  constructor(private breakpointObserver: BreakpointObserver,public route: Router) {
+  constructor(private breakpointObserver: BreakpointObserver,public route: Router,public AuthService:LoginService) {
 
 
   }
   ngOnInit() {
     this.MenuMostrar = true;
-    if(sessionStorage.getItem('username')!= null){
-      this.UsuarioLogeado =true;
-        }
-        else
-        {
-         this.UsuarioLogeado=false;
-        }
+   
 
    
 }
 cerrarSesion() {
-  console.log('helo');
-  sessionStorage.clear();
-  this.route.navigate(['/login']);
+  Swal.fire({
+    title: 'Desea continuar?',
+    text: "Al continuar se cerrara la sesion!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, Continuar!'
+  }).then((result) => {
+    if (result.value) {
+      let  Usuario = this.AuthService.usuario;
+      this.AuthService.logout();
+      this.route.navigate(['/login']);
+    
+      Swal.fire(
+        'Adios!',
+        `Regresa pronto  ${Usuario.username}`,
+        'success'
+      )
+    }
+  })
+ 
 }
 
   MostrarMenu(){

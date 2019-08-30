@@ -2,16 +2,27 @@
   <div id="app" class="app">
 	  <div class="left">
 	    <div class="apptittle"> <h3></h3><h3>SISTEMA </h3> </div>
-	   
-	    	<label  id="userLabel">Usuario</label>
-	    	<input type="text" id="user" #u1/>
-	    	<div class="underline"></div>
-	    	<label id="passwordLabel">Contraseña</label>
-	    	<input type="password" id="password"#p2 />
-	    	<div class="underline"></div>
+		 
+			<form  [formGroup]="formUsuario" >
+         <mat-form-field>
+					 <input matInput placeholder="Usuario"  formControlName="usuario" name="usuario.username" autocomplete="off"  autofocus required>
+				 </mat-form-field>
+				<div class="underline"></div>
+			  <mat-form-field>
+					<input matInput placeholder="Contraseña" type="password" name="usuario.password"  formControlName="password" autofocus required>
+		
+				</mat-form-field>
+				<div class="underline"></div>
+			<!--	<mat-select placeholder="Seleccionar empresa"  formControlName="empresa" name="item" >
+					<mat-option *ngFor="let empresa of Empresas" [value]="empresa">
+						{{empresa.nombre}}
+					</mat-option>
+				</mat-select>
+				-->
 	    	<div class="submitButton">
-	    	  <button mat-button  (click)="check(u1.value, p2.value)">{{ loading ? 'Ingresando...' : 'Ingresar' }}</button>
-	    	</div>
+	    	  <button mat-button   [disabled]="formUsuario.invalid" (click)="IniciarSesion()">{{ loading ? 'Ingresando...' : 'Ingresar' }}</button>
+				</div>
+			</form>
 	   
 	  </div>
 	  <div class="right">

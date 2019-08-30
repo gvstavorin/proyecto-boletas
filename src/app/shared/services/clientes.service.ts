@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {Clientes} from './../model/clientes';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import {ApiURL} from './conexion-ip'
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +16,37 @@ export class ClientesService {
     'Accept': 'application/json',
     
    };
-  _URL = 'http://192.168.88.45/aerp/clientes';
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,private router:Router) { }
+  private isNoAutorizado(e):boolean{
+  if(e.status==401 || e.status ==403){
+    this.router.navigate(['/login'])
+             return true;
+  }
+  return false;
+ }
 
 
-
-  public obtenerClientes():Observable<Clientes[]> {
+  public obtenerClientes():Observable<any> {
       
-    return this.http.get<Clientes[]>(this._URL, {headers : this.httpOptions});
+    return this.http.get<any>(ApiURL.ApiErp+'/clientes');
+  // .pipe(
+  //   catchError(e=> {
+  //     this.isNoAutorizado(e)
+  //     return throwError(e)
+  //   })
+  // );
     
   }
+  public obtenerContratosActivos():Observable<any> {
+      
+    return this.http.get<any>(ApiURL.ApiErp+'/contratos-activos');
+  // .pipe(
+  //   catchError(e=> {
+  //     this.isNoAutorizado(e) 
+  //     return throwError(e)
+  //   })
+  // );
+    
+  }
+
 }
