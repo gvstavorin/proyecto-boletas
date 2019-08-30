@@ -14,8 +14,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-  factura(data){
-    this.httpFact.guardarDTETem(data).subscribe(data=>{console.log(data)}, error=>{console.log(error)})
-  }
+
 
 }
