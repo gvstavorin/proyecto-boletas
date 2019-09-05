@@ -48,9 +48,9 @@
         </mat-list-item>
       </mat-list>
   
-      <button mat-raised-button class="btn-block" type="submit" [disabled]="formEstadoCuentaTotal.invalid"
+      <button mat-raised-button class="btn-block" type="submit" [disabled]="formEstadoCuentaTotal.invalid || loading"
         color="primary">
-        <mat-icon></mat-icon> Pagar cuenta
+        <mat-icon></mat-icon> {{ loading ? 'Pagando... ' : 'Pagar cuenta' }}
       </button>
     </form>
   

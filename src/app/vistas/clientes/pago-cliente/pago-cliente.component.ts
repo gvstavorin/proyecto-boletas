@@ -20,7 +20,8 @@ export class PagoClienteComponent implements OnInit {
   TotalAPagarTotal:any;
   formFormadepago : FormGroup;
   TipoDocumento: any;
-  
+  loading:boolean;
+  pagoEnProceso: any;
   tipo_Pago: any[] = [
   
     {id: '1', tipo: 'Efectivo'},
@@ -112,9 +113,6 @@ calcularTotal(){
   Swal.fire("Error", "EL DESCUENTO SUPER AL MONTO", "error");
   return;
  }
-
-
- console.log(this.TipoDocumento)
  Swal.fire({
      
      title: "¿Estás seguro?",
@@ -129,7 +127,7 @@ calcularTotal(){
      confirmButtonText: "Sí, continuar."
    }).then(result => {
      if (result.value) {
-
+  this.loading = true;
 
       this.factService.guardarDTETem(this.formEstadoCuentaTotal.value,this.datosCuenta).subscribe(
         data=>{ this.DteTemporal = data;
@@ -138,6 +136,8 @@ calcularTotal(){
               this.DteReal = data;
               this.factService.GenerarPDFReal(this.DteReal,this.TipoDocumento)
               Swal.fire('', `Pago Completado`, 'success')
+              this.loading = false;
+              this.dialogRef.close();
 
               
             })  
